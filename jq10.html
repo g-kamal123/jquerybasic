@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Slider</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  </head>
+  <style>
+    td {
+      text-align: center;
+    }
+  </style>
+  <body>
+    <h1>Product with category</h1>
+    <div class="finalCategoryDiv">
+     
+      <ul class="categoryList">
+        <li><a href="">category</a><button class="itemListBtn">+</button></li>
+       
+      </ul>
+    </div>
+    <script>
+      $(document).ready(function () {
+        $(".finalCategoryDiv").on("click", "button", function () {
+          var new_line = $(this).attr("class");
+          var caName = $("#enterTextValue").val();
+          if (new_line == "itemListBtn" && caName != "") {
+            catUlBody = $(this).parent();
+            catVal =
+              "<ul><li><a href='#'>" +
+              caName +
+              "<button class='itemListBtn'>+</button></a></li></ul>";
+            catUlBody.append(catVal);
+            $("#enterTextValue").val("");
+          }
+          if (new_line == "categoryListBtn" && caName != "") {
+            catUlBody = $(this).parent();
+            catVal =
+              "<li><a href=''>" +
+              caName +
+              "</a><button class='categoryListBtn'>+</button> </li>";
+            catUlBody.append(catVal);
+            $("#enterTextValue").val("");
+          }
+          if (caName == "") {
+            alert("Input field is empty");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
